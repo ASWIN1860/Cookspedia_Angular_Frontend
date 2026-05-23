@@ -1,0 +1,59 @@
+.card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+ 
+    .card h2 {
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 1.8rem;
+    }
+ 
+    .form-control {
+      border-radius: 6px;
+      border: 1px solid #d0d5dd;
+      padding: 0.65rem 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+ 
+    .form-control::placeholder {
+      color: #aab0ba;
+    }
+ 
+    .form-control:focus {
+      border-color: #5aaa85;
+      box-shadow: 0 0 0 3px rgba(90, 170, 133, 0.15);
+    }
+ 
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+ 
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #555;
+      text-align: justify;
+      line-height: 1.55;
+    }
+ 
+    .btn-submit {
+      background-color: #5aaa85;
+      border: none;
+      color: #fff;
+      padding: 0.55rem 1.6rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease;
+    }
+ 
+    .btn-submit:hover {
+      background-color: #489e77;
+      color: #fff;
+    }

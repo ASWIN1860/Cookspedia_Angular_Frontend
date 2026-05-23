@@ -1,0 +1,67 @@
+<app-header />
+<div class="container-fluid p-0" style="min-height: 70vh">
+  <div class="bg-success">
+    <div class="container-fluid row">
+      <div class="col-5 d-flex justify-content-center py-3">
+        <img
+          [src]="profile?profile:`https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png`"
+          alt="profile_pic"
+          height="200px"
+        />
+      </div>
+      <div class="col-7 text-light py-3">
+        <h3>{{username}}</h3>
+        <p style="text-align: justify">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam explicabo a qui aut
+          veniam nam animi exercitationem accusantium adipisci facilis quo, voluptatem suscipit.
+          Possimus commodi, pariatur voluptate error ipsum non. Lorem ipsum dolor, sit amet
+          consectetur adipisicing elit. Doloribus quasi accusantium ad culpa necessitatibus expedita
+          at nobis numquam quas vitae? Voluptatem maxime soluta neque libero sint corrupti quia
+          harum blanditiis.
+        </p>
+        <button class="btn btn-info my-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <h6 class="display-6 m-2 fw-bold text-center">Download Recipes</h6>
+    <div class="d-flex justify-content-around gap-3 flex-wrap my-3">
+      @if (downloadList.length > 0) {
+        @for (recipe of downloadList; track $index) {
+          <div class="card" style="width: 16rem; cursor: pointer">
+            <img
+              [src]="recipe?.recipeImage"
+              class="card-img-top"
+              alt="recipe_img"
+              height="250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">{{recipe?.recipeName}}</h5>
+            </div>
+          </div>
+        }
+      } @else {
+        <h3 class="text-danger fw-bold">No Download recipes available</h3>
+      }
+    </div>
+  </div>
+</div>
+
+<app-footer />
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profile Update</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex flex-column align-items-center">
+      <label for="inp" class="d-flex justify-content-center">
+        <input type="file" (change)="getFile($event)" name="" id="inp" style="display: none;" accept="image/*">
+        <img [src]="profile" alt="upload" width="50%" class="mb-3">
+      </label>
+      <input type="text" [(ngModel)]="username" name="username" class="form-control">
+      <button class="btn btn-success mt-3" (click)="handleProfileUpdate()">Update</button>
+    </div>   
+  </div>
+</div>

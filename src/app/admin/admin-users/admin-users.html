@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-3 p-0" style="min-height: 100vh">
+      <app-admin-sidebar />
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="display-5 mt-2 fw-bold">Users</h3>
+      <!-- Table -->
+      @if (userList.length > 0) {
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (users of userList; track $index) {
+              <tr>
+                <td>{{$index}}</td>
+                <td>{{users.username}}</td>
+                <td>{{users.email}}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+</div>

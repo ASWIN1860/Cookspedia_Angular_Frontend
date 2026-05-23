@@ -1,0 +1,75 @@
+<app-header/>
+<div class="container mt-5 mb-5">
+  <div class="card shadow-sm">
+    <div class="row g-0">
+      
+      <!-- Product Image Section -->
+      <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
+        <img [src]="recipeData?.image" 
+             alt="product.title" 
+             class="img-fluid rounded-start p-3" 
+             style="max-height: 400px; object-fit: contain;">
+      </div>
+
+      <!-- Product Info Section -->
+      <div class="col-md-7">
+        <div class="card-body">
+          
+          <!-- Category Badge -->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item text-uppercase small fw-bold text-muted">
+                {{recipeData?.cuisine}}
+              </li>
+            </ol>
+          </nav>
+
+          <h1 class="card-title h2 mb-3">{{recipeData?.name}}</h1>
+          
+          <p class="text-muted mb-4">
+          </p>
+
+          <h5 class="text-primary mb-4 fw-bold">
+            Cooking Time : {{recipeData?.cookTimeMinutes}} Minutes
+          </h5>
+          <h5 class="text-primary mb-4 fw-bold">
+            Difficulty : {{recipeData?.difficulty}}
+          </h5>
+          <h5 class="text-primary mb-4 fw-bold">
+            Servings : {{recipeData?.servings}}
+          </h5>
+          <h5 class="text-primary mb-4 fw-bold">
+            Preperation Time : {{recipeData?.prepTimeMinutes}} Minutes
+          </h5>
+          <h5 class="text-primary mb-4 fw-bold">
+            Calories/Serving : {{recipeData?.caloriesPerServing}}
+          </h5>
+
+          <hr>
+
+          <h5 class="fw-bold">Incgedients</h5>
+          <p class="card-text text-secondary leading-relaxed">
+            {{recipeData?.ingredients}}
+          </p>
+          <h5 class="fw-bold">Instructions</h5>
+          <p class="card-text text-secondary leading-relaxed">
+            {{recipeData?.instructions}}
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+            <button  (click)="handleDownload()" class="btn btn-primary btn-lg px-4 me-md-2" type="button">
+              Download
+            </button>
+            <button (click)="handleRecipeSave()" class="btn btn-success btn-lg px-4" type="button">
+              Save Recipe
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer/>

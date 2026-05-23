@@ -1,0 +1,64 @@
+<div
+  class="container-fluid d-flex align-items-center justify-content-center"
+  style="
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(38, 79, 202), rgb(140, 255, 0));
+  "
+>
+  <div class="row w-75 align-items-center">
+    <div class="col-sm-12 col-md-6 p-4">
+      <div class="text-white mb-4">
+        <h2 class="text-center fw-bold text-dark">
+          CooksPedia <i class="fa-solid fa-fire" style="color: rgb(255, 212, 59)"></i>
+        </h2>
+        <h5 class="text-center text-dark fw-bold">
+          Get more than 100+ recipes on your fingertips!!
+        </h5>
+      </div>
+
+      <div
+        class="card border-0 shadow bg-info p-4 mx-auto"
+        style="border-radius: 15px; max-width: 400px"
+      >
+        <h3 class="text-center mb-3 fw-bold">User Sign up</h3>
+        <div class="my-2">
+          <form action="" [formGroup]="regForm" (ngSubmit)="handleSubmit()">
+            <input type="text" placeholder="Enter Username" formControlName="username" class="form-control mb-2" />
+            @if(regForm.get('username')?.invalid&&regForm.get('username')?.touched){
+              <div class="text-danger mb-2">
+                *Username Invalid
+              </div>
+            }
+            <input type="email" placeholder="Enter Email Id" formControlName="email" class="form-control mb-2" />
+             @if(regForm.get('email')?.invalid&&regForm.get('email')?.touched){
+              <div class="text-danger mb-2">
+                *Email ID  Invalid
+              </div>
+            }
+            <input type="password" placeholder="Enter Password" formControlName="password" class="form-control mb-2" />
+            @if(regForm.get('password')?.invalid&&regForm.get('password')?.touched){
+              <div class="text-danger mb-2">
+                *Password Invalid
+              </div>
+            }
+            <div class="d-grid gap-2">
+              <button class="btn btn-success fw-bold" type="submit" [disabled]="regForm?.invalid">Sign Up</button>
+            </div>
+          </form>
+          <a routerLink="/" class="text-center text-dark text-decoration-none pt-2">Go Back Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center text-dark p-4">
+      <h1 class="fw-bold">Create New Account</h1>
+      <h4 class="mt-3">What Will You Get?</h4>
+      <ul class="fs-5 mt-2" style="list-style-type: square">
+        <li>Different Recipes</li>
+        <li>Easy Cooking Methods</li>
+        <li>Save Your Favorite Recipes</li>
+        <li>Download Your Recipes</li>
+      </ul>
+    </div>
+  </div>
+</div>

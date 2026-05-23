@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-3 p-0" style="min-height: 100vh">
+      <app-admin-sidebar />
+    </div>
+    <div class="col-sm-12 col-md-9 p-0">
+      <div class="bg-success">
+        <h4 class="display-6 text-light fw-bold p-2">Dashboard</h4>
+      </div>
+      <div class="container-fluid text-center row gap-2">
+        <div class="col bg-info rounded shadow p-3">
+          <h4>
+            Users : <span>{{ userCount }}</span>
+          </h4>
+        </div>
+        <div class="col bg-danger rounded shadow p-3">
+          <h4>
+            Recipes : <span>{{ recipeCount }}</span>
+          </h4>
+        </div>
+        <div class="col bg-warning rounded shadow p-3">
+          <h4>
+            Feedbacks : <span>{{ feedbackCount }}</span>
+          </h4>
+        </div>
+      </div>
+      <div class="container-fluid row mt-4">
+        <div class="col">
+          <highcharts-chart
+            [constructorType]="chartConstructor"
+            [options]="chartOptions"
+            class="chart"
+          />
+        </div>
+        <div class="col">
+          <mat-card class="demo-inline-calendar-card">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

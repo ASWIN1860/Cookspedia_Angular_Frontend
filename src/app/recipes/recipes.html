@@ -1,0 +1,83 @@
+<app-header style="position: sticky;top: 0px;z-index: 5;"/>
+<!-- Recipes page -->
+<div class="container-fluid">
+  <div class="row" style="position: sticky;top: 0px;">
+    <div class="col-sm-12 col-md-3 border-end d-flex flex-column gap-2 justify-content-start" style="position: sticky;top: 0px;z-index: 2;">
+      <h4 class="my-4 ">Filters</h4>
+      <div class="d-flex flex-column gap-2">
+        <button class="btn bg-warning" (click)="setFilterKeyword('')">All</button>
+        <!-- Cuisine Type Filters -->
+        <button
+          class="btn bg-info"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#cuisineCollapse"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Cuisine Types <i class="fa-solid fa-angle-down text-dark"></i>
+        </button>
+        <div class="collapse" id="cuisineCollapse">
+          <div class="border rounded p-1 d-flex gap-2 flex-wrap">
+            @for (i of cuisineList; track $index) {
+              <button class="btn border"(click)="setFilterKeyword(i)">{{ i }}</button>
+            }
+          </div>
+        </div>
+        <!-- Meal Type Filters -->
+        <button
+          class="btn bg-info"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mealCollapse"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Meal Types <i class="fa-solid fa-angle-down text-dark"></i>
+        </button>
+        <div class="collapse" id="mealCollapse">
+          <div class="border rounded p-1 d-flex gap-2 flex-wrap">
+            @for (i of mealTypeList; track $index) {
+              <button class="btn border" (click)="setFilterKeyword(i)">{{i}}</button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-9" style="height: 100vh; overflow-y: auto;">
+      <div class="d-flex justify-content-between align-items-center my-4"> 
+        <h6 class="display-4">Recipes</h6>
+        <input
+          type="search"
+          name="search"
+          [(ngModel)]="searchKey"
+          id=""
+          placeholder="Enter Keyword to search"
+          class="form-control w-50 h-50"
+        />
+      </div>
+
+      <div class="d-flex justify-content-around flex-wrap gap-3 py-5">
+        <!-- recipes card -->
+        @if (allRecipes.length > 0) {
+          @for (recipe of allRecipes|search:searchKey; track $index) {
+            <div class="card" style="width: 18rem;cursor: pointer;" (click)="gotoDetails(recipe._id)">
+              <img [src]="recipe?.image" class="card-img-top" alt="..." />
+              <div class="card-body py-3">
+                <h4 class="card-title text-center">{{ recipe?.name }}</h4>
+                <p class="card-text text-center">
+                  Cuisine : <b>{{ recipe?.cuisine }}</b>
+                </p>
+              </div>
+            </div>
+          }
+        } @else {
+          <h2 class="text-center text-danger">No recipes Available!!</h2>
+        }
+      </div>
+    </div>
+
+    <app-footer />
+  </div>
+</div>

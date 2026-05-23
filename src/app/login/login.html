@@ -1,0 +1,35 @@
+<div
+  class="container-fluid d-flex flex-column justify-content-center align-items-center"
+  style="
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(38, 79, 202), rgb(0, 255, 132));
+  "
+>
+  <h2 class="text-center my-2 fw-bold">
+    CooksPedia<i class="fa-solid fa-fire" style="color: rgb(255, 212, 59)"></i>
+  </h2>
+  <h4 class="text-center fw-bold">Get more than 100+ recipes on your fingertips!!</h4>
+  <div class="border border-2 shadow bg-info p-3" style="width: 30%; border-radius: 10px">
+    <h3 class="text-center mb-3 fw-bold">User Sign In</h3>
+    <div class="my-4">
+      <form action="" [formGroup]="logForm" (ngSubmit)="handleSignin()">
+        <input type="text" placeholder="Enter Email ID" formControlName="email" class="form-control mb-2" />
+        @if(logForm.get('email')?.invalid && logForm.get('email')?.touched){
+          <div class="text-danger">
+            *Invalid Email
+          </div>
+        }
+        <input type="password" placeholder="Enter Password" formControlName="password" class="form-control mb-2" />
+        @if(logForm.get('password')?.invalid && logForm.get('password')?.touched){
+          <div class="text-danger">
+            *Invalid Password
+          </div>
+        }
+        <div class="d-grid">
+          <button class="btn btn-success" [disabled]="logForm.invalid">Sign In</button>
+        </div>
+      </form>
+      <a routerLink="/">Go To Home</a>
+    </div>
+  </div>
+</div>

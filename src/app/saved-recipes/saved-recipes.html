@@ -1,0 +1,34 @@
+<app-header />
+<!-- Saved Recipes Page -->
+<div class="container-fluid" style="min-height: 70vh">
+  <h3 class="m-1 text-center display-4">Saved Recipes</h3>
+  
+  @if (savedRecipes.length > 0) {
+    <div class="d-flex justify-content-around gap-3 flex-wrap my-4">
+      @for (recipe of savedRecipes; track $index) {
+        <div class="card" style="width: 18rem; cursor: pointer">
+          <img [src]="recipe?.recipeImage" class="card-img-top" alt="recipe_img" height="300px" (click)="gotoDetails(recipe.recipeId)"/>
+
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              {{ recipe?.recipeName }}
+            </h5>
+
+            <p class="text-end">
+              <button (click)="handleDelete(recipe?._id)" class="btn">
+                <i class="fa-solid fa-trash text-danger"></i>
+              </button>
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+
+  } @else {
+    <div class="m-5">
+      <h4 class="display-4 text-center text-danger">No Recipes Saved Yet!!</h4>
+    </div>
+  }
+</div>
+
+<app-footer />

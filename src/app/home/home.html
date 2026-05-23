@@ -1,0 +1,94 @@
+<app-header />
+<!-- Home page -->
+<div class="container-fluid">
+  <!-- Hero Section -->
+  <div class="row bg-success text-white">
+    <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center">
+      <h1>CooksPedia <i class="fa-solid fa-fire" style="color: rgb(255, 212, 59)"></i>2026</h1>
+      <p style="text-align: justify">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime perferendis delectus
+        quisquam cum, eius facilis quos recusandae corporis placeat ea fuga optio, dolores, quod ad?
+        Iusto itaque aperiam eligendi quas!
+      </p>
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center">
+      <img
+        src="https://img.pikbest.com/png-images/20250520/pepperoni-pizza-with-melted-cheese-tomato-sauce-crispy-round-crust_11722490.png!sw800"
+        alt="heroimg"
+        class="heroimg"
+      />
+    </div>
+  </div>
+
+  <!-- Popular section -->
+  <div class="container-fluid">
+    <h3 class="my-3 text-center">Popular Recipies of this week</h3>
+    <div class="d-flex justify-content-around gap-2 flex-wrap mb-3">
+      @if (popularRecipes.length > 0) {
+        @for (recipe of popularRecipes; track $index) {
+          <div class="card" style="width: 18rem">
+            <img [src]="recipe?.image" class="card-img-top" alt="recipe-img" height="300px" />
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ recipe?.name }}</h5>
+              <p class="text-center"><b>Cuisine : </b>{{ recipe?.cuisine }}</p>
+            </div>
+          </div>
+        }
+      } @else {
+        <h3 class="text-danger text-center">No Recipes Available</h3>
+      }
+    </div>
+  </div>
+  <!-- Banner -->
+  <div class="my-2 d-flex justify-content-center align-items-center py-2" id="banner">
+    <div class="w-75 text-center py-3" id="bannerChild">
+      <h1>50+ recipies that very quick and fast</h1>
+      <p>Find the perfect food ideas to start your day with the quick and easier way</p>
+    </div>
+  </div>
+
+  <!-- Downlaod app -->
+  <div class="bg-success conatiner-fluid my-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/mobile-app-development-illustration-svg-download-png-11692216.png"
+          alt="downloadapp"
+          width="75%"
+        />
+      </div>
+      <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center text-light">
+        <h2>Download Application</h2>
+        <p style="text-align: justify">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, rem. Incidunt
+          aspernatur, dolorem at quos optio ipsum reprehenderit eius excepturi? Magni nihil ipsam
+          provident similique numquam voluptas architecto. Sunt, inventore.
+        </p>
+        <a href=""><i class="fa-solid fa-download" style="color: rgb(116, 192, 252)"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- User testimonials -->
+  <div class="container-fluid mb-3">
+    <h1 class="my-5 text-center">User Testimonials</h1>
+    <div class="d-flex justify-content-around">
+      <!-- card -->
+      @if (feedbackList.length > 0) {
+        @for (fb of feedbackList; track $index) {
+          <div class="card d-flex justify-content-center " style="width: 16rem;font-style: italic;">
+            <h4 class="text-center text-decoration-underline py-2">Feedbacks</h4>
+            <div class="card-body">
+              <p class="card-text">
+                {{fb.feedback}}
+              </p>
+              <p class="text-center">-{{fb.name}}</p>
+            </div>
+          </div>
+        }
+      } @else {
+        <h3 class="text-danger text-center">No feedbacks available!!</h3>
+      }
+    </div>
+  </div>
+</div>
+<app-footer />

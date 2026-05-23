@@ -1,0 +1,109 @@
+<app-header />
+
+<!-- Contact Page -->
+<div class="container-fluid p-0">
+    <div class="bg-success d-flex justify-content-center p-5 text-light">
+        <div class="w-75 text-center">
+            <h4 class="display-4 fw-bold">Contact Us</h4>
+            <p style="text-align: justify;" class="fw-bold">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni dolores aut earum non est, maiores amet
+                nobis praesentium tenetur et atque, at illum! Corporis voluptates minus fugiat deserunt, molestiae iste?
+                Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ea ullam distinctio dolorem placeat. Quisquam minima,
+                id,
+                ex voluptate est quasi pariatur illo natus obcaecati iste, totam praesentium enim modi nemo.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-sm-12 col-md-6 py-5 ">
+            <div class="d-flex flex-column justify-content-center gap-3 border-bottom my-2">
+                <h2 class="text-center fw-bold">Get In Touch</h2>
+                <p style="text-align: justify;" class="fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi iste, accusamus, deserunt
+                    perspiciatis harum magni deleniti iure sapiente corrupti nesciunt, ipsam numquam autem
+                    temporibus!
+                    Placeat, saepe? Est aliquam saepe eveniet.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quae, aut eius odit nihil
+                    repellendus, necessitatibus magnam earum atque accusamus iure rem! Unde suscipit corporis
+                    delectus
+                    fugit soluta dolor voluptates?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti cupiditate aut rem ab iusto
+                    non
+                    quo libero magnam alias neque? Quis assumenda nesciunt ex rerum quo vel totam tempore explicabo.
+                </p>
+                <p class="fw-bold">
+                    <span class="p-2 bg-success text-light rounded-circle">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    Address : ABC Building, London, xxx
+                </p>
+                <p class="fw-bold">
+                    <span class="p-2 bg-success text-light rounded-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    Phone :
+                    98xxxxxxx
+                </p>
+                <p class="fw-bold">
+                    <span class="p-2 bg-success text-light rounded-circle">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    Email : cookspediagmail.com
+                </p>
+            </div>
+            <div class="d-flex justify-content-center gap-4 flex-wrap p-2 mt-5">
+                <p>
+                    <span class="p-2 bg-info text-light rounded-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </span>
+                </p>
+                <p>
+                    <span class="p-2 bg-info text-light rounded-circle">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </span>
+                </p>
+                <p>
+                    <span class="p-2 bg-info text-light rounded-circle">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </span>
+                </p>
+                <p>
+                    <span class="p-2 bg-info text-light rounded-circle">
+                        <i class="fa-brands fa-youtube"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 py-5 d-flex justify-content-center align-items-center">
+            <div class="card">
+                <h2 class="fw-bold">Add your Testimony</h2>
+
+                <div class="mb-3">
+                    <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="Name" />
+                </div>
+
+                <div class="mb-3">
+                    <input type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="Email" />
+                </div>
+
+                <div class="mb-3">
+                    <textarea class="form-control" [(ngModel)]="feedback" name="feedback" placeholder="Enter Testimony"></textarea>
+                </div>
+
+                <p class="disclaimer mb-3">
+                    By submitting, You are agreeing with the terms and consitions of the website.
+                    We may use your details in our website
+                </p>
+
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-success" (click)="handleFeedbackSubmit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer />
