@@ -12,7 +12,7 @@ export class Api {
   }
 
   // base_url="http://localhost:3000"
-  base_url="cookspedia-angular-frontend.vercel.app"
+  base_url="https://cookspedia-angular-backend.onrender.com"
 
   appendHeader(){
     let httpHeader=new HttpHeaders()
